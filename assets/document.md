@@ -143,6 +143,7 @@ oraz $\frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{a}{z}\right)^n$ dla $\left|z\r
 Analogicznie, można dokonać rozwinięcia funkcji $\hat{L}\left(\frac{1}{z+a}, 0\right)$.
 
 Dla $\left|z\right| < \left|a\right|$ jest to:
+
 $$
 \frac{1}{z+a} &= \frac{1}{a} \frac{1}{1 - \frac{-z}{a}} \\
 &= \frac{1}{a} \sum_{n=0}^{\infty} \left(\frac{- z}{a}\right)^n
