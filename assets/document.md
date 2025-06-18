@@ -1,3 +1,95 @@
+# Zadanie 1
+
+Mamy dwuwymiarowy piekarnik - płaszczyznę.
+
+Niech $T(x,y)$ opisuje temperaurę.
+Znamy warunki początkowe:
+- $T(x, 0) = 0$
+- $T(x, d) = $T_0$
+
+Przez $T_y$ oznaczmy temperaturę w punkcie $y_0$ ($T(x, y_0)$).
+
+```{note}
+Stałe:
+- $T_0 = 453.15K$
+- $d = 60cm$
+- $y_0 = 40cm$
+- $T_{min} = 347.15K$
+```
+
+## Rozwiązanie równaniem Laplace'a
+
+```{admonition} Równanie Laplace'a
+Powyższy problem można rozwiązać przy pomocy równania Laplace'a:
+
+$$
+\Delta T = 0
+$$ (laplace)
+```
+
+Ponieważ problem jest de facto 1-wymiarowy (zakładamy że grzałki są szerokości piekarnika, więc temperatura zależy jedynie od y)
+Laplace'ian sprowadza się do drugiej pochodnej względem $y$:
+
+$$
+\Delta T = 0 \\
+\frac{d^2 T}{dy^2} = 0 \Rightarrow T(y) &= \iint dy = \\
+&= A y + B
+$$
+
+Teraz można zaaplikować warunki początkowe:
+- $T(y=0) = 0 \Rightarrow B = 0$
+- $T(y=d) = T_0 \Rightarrow A d = T_0 \Rightarrow A = \frac{T_0}{d}$
+
+Więc ostatecznie otrzymujemy $T(y) = \frac{T_0}{d} y$.
+
+## Rozwiązanie przy pomocy transformacji konforemnej
+
+Zakładamy $f(z) = e^{\frac{\pi z}{d}}$.
+
+```{tip}
+Można zweryfikować działanie tej funkcji dla następujących przypadków:
+- dolna płaszczyzna piekarnika ($y = 0$)
+niech $u = x + i*0$ wtedy $f(u) = e^{\frac{\pi x}{d}}$ co będzie odpowiadało wartością na dodatniej póosi rzeczywistej.
+- górna płaszczyzna piekarnika ($y = d$)
+niech $u = x + i*d$ wtedy $f(u) = e^{\frac{\pi x}{d}} e^{\pi i} = -e^{\frac{\pi x}{d}}$ co będzie odpowiadało wartością na ujemnej póosi rzeczywistej.
+- Gdy $y \in [0, d]$, $f(u) pozostaje w górnej półpłaszczyźnie zespolonej, ponieważ $f(u) = e^{\frac{\pi x}{d}} e^{\gamma \pi i}$, dla $\gamma \in [0, 1]$
+możemy wyliczyć $\Im f(u) = sin(\gamma \pi) e^{\frac{\pi x}{d}}$. Ta liczba jest zawsze większa bądź równa 0.
+```
+
+Widać, że $f(z)$ jest odwzorowaniem konforemnym $T(z)$ na płaszczyźnie zespolonej.
+
+Należy dokonać transformacji odwrotnej $f(z)$, aby otrzymać funkcję $T(x,y)$.
+
+$$
+T(x, y) = A * Arg(f(z)) = \frac{T_0}{\pi} * \frac{\pi}{d} x = \frac{T_0}{d} x
+$$
+
+## Podsumowanie
+
+Ostatecznie w obu metodach otrzymujemy to samo rozwiązanie:
+
+$$
+T(x,y) = \frac{T_0}{d} y
+$$
+
+Po podstawieniu wartości stałych mamy:
+
+$$
+T(x,y) = \frac{453.15}{60} y \frac{K}{cm} = 7.5525 y \frac{K}{cm}
+$$
+
+Wyliczając $T(x, y_0)$ otrzymujemy $T(x, 40) = 7.5525 * 40 = 302.1 K$ co niestety jest mniejsze niż $T_{min}$.
+
+```{raw} latex
+\newpage
+```
+
+```{admonition} Wniosek
+Ciasto się nie upiekło.
+
+![oh no](sad.png)
+```
+
 # Zadanie 2
 
 ## Wprowadzenie
