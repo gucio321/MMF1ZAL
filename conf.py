@@ -18,14 +18,14 @@ sys.path.insert(0, os.path.abspath('.'))
 import time
 
 project = 'FT2zXcXvX'
-author = '[AUTORZY]'
+author = 'Maciej Szeptuch'
 titlepage = {
         "faculty": "Fizyki i Informatyki Stosowanej",
         "year": "auto",
-        "groupID": "[NR GRUPY ĆWICZENIOWEJ]",
-        "team": "[NR ZESPOŁU]",
-        "title": "[TEMAT ĆWICZENIA]",
-        "number": "[NUMER ĆWICZENIA]",
+        "groupID": "N/A",
+        "team": "N/A",
+        "title": "Zadanie Zaliczeniowe MMF1",
+        "number": "N/A",
 
         "taskDate": "auto", # [DATA LABORATORIUM]
         "creationDate": "auto", # [DATA POWSTANIA SPRAWOZDANIA]
@@ -33,7 +33,7 @@ titlepage = {
 
         # nothing to change here
         "author": author,
-        "subject": "PRACOWNIA FIZYCZNA WFiS AGH",
+        "subject": "Matematyczne Metody Fizyki 1",
 }
 
 if titlepage["taskDate"] == "auto":
