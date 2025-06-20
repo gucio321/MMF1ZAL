@@ -53,7 +53,7 @@ niech $u = x + i*0$ wtedy $f(u) = e^{\frac{\pi x}{d}}$ co będzie odpowiadało w
 - górna płaszczyzna piekarnika ($y = d$)
 niech $u = x + i*d$ wtedy $f(u) = e^{\frac{\pi x}{d}} e^{\pi i} = -e^{\frac{\pi x}{d}}$ co będzie odpowiadało wartością na ujemnej póosi rzeczywistej.
 - Gdy $y \in [0, d]$, $f(u)$ pozostaje w górnej półpłaszczyźnie zespolonej, ponieważ $f(u) = e^{\frac{\pi x}{d}} e^{\gamma \pi i}$, dla $\gamma \in [0, 1]$
-możemy wyliczyć $\Im f(u) = sin(\gamma \pi) e^{\frac{\pi x}{d}}$. Ta liczba jest zawsze większa bądź równa 0.
+możemy wyliczyć $\Im f(u) = sin(\gamma \pi) e^{\frac{\pi x}{d}}$. Ta liczba jest zawsze większa bądź równa 0 (co znaczy że rozwiązanie znajduje się na górnej półpłaszczyźnie).
 ```
 
 Widać, że $f(z)$ jest odwzorowaniem konforemnym $T(z)$ na płaszczyźnie zespolonej.
@@ -109,6 +109,8 @@ dla 2 przypadków:
 
 ## Wstęp teoretyczny
 
+### Liniowość rozwinięcia w szereg Laurenta
+
 Zdefiniujmy $\hat{L}$ jako operator rozwinięcia w szereg Laurenta.
 
 $$
@@ -130,13 +132,50 @@ $$
 \hat{L}(f(z), z_0) = \frac{q}{2\pi \epsilon_0} \left( \hat{L}\left(\frac{1}{z-a}, z_0\right) - \hat{L}\left(\frac{1}{z+a}, z_0\right) \right)
 $$
 
+### Szereg laurenta a suma szeregu geometrycznego
+
+Zgodnie z [literaturą 1.](#literatura), funkcja postaci $f(z) = \frac{1}{1-z}$ ma rozwinięcie w szereg Laurenta wokół punktu $z_0 = 0$, które jest równe sumie szeregu geometrycznego:
+
+$$
+\hat{L}\left(\frac{1}{1-z}, 0\right) = \sum_{n=0}^{\infty} z^n
+$$ (geom)
+
+```{important}
+Zakłąda się, że w powyższym przypadku $\left|z\right| < 1$
+```
+
+```{tip}
+Oczywiście stosując odpowiednie przekształcenie, można uzyskać postać powyższego rozwinięcia dla $\left|z\right| > 1$
+lub dla $z_0 \neq 0$.
+```
+
 ## Pierwszy składnik
 
 Rozważamy rozwinięcie funkcji $f(x) = \frac{1}{z-a}$ w okolicy $z_0 = 0$.
 
-To rozwinięcie można przyróœnać do rozwinięcia szeregu geometrycznego. Jest ono równe
-$-\frac{1}{a} \sum_{n=0}^{\infty} \left(\frac{z}{a}\right)^n$ dla $\left|z\right| < \left|a\right|$
-oraz $\frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{a}{z}\right)^n$ dla $\left|z\right| > \left|a\right|$ ([literatura 1.](#literatura)).
+dla $\left|z\right| < \left|a\right|$
+
+$$
+f(z) = \frac{1}{z-a} = \frac{-1}{a} \frac{1}{1 - \frac{z}{a}} \\
+$$
+
+Przy spełnionych założeniach, wyrażenie $\frac{z}{a} < 1$, więc możemy skorzystać z równania {eq}`geom`:
+
+$$
+\hat{L}(f(z), 0) = \frac{-1}{a} \sum_{n=0}^{\infty} \left(\frac{z}{a}\right)^n
+$$
+
+dla $\left|z\right| > \left|a\right|$
+
+$$
+f(z) = \frac{1}{z-a} = \frac{1}{z} \frac{1}{1 - \frac{a}{z}}
+$$
+
+wtedy również $\frac{a}{z} < 1$ i można skorzystać z równania {eq}`geom`:
+
+$$
+\hat{L}(f(z), 0) = \frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{a}{z}\right)^n
+$$
 
 ## Drugi składnik
 
@@ -149,7 +188,12 @@ $$
 &= \frac{1}{a} \sum_{n=0}^{\infty} \left(\frac{- z}{a}\right)^n
 $$
 
-natomiast dla $\left|z\right| > \left|a\right|$ analogicznie jest to $-\frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{-a}{z}\right)^n$.
+natomiast dla $\left|z\right| > \left|a\right|$ analogicznie mamy:
+
+$$
+\frac{1}{z+a} &= \frac{1}{z} \frac{1}{1 - \frac{-a}{z}} \\
+&= \frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{-a}{z}\right)^n
+$$
 
 ## Podsumowanie
 
@@ -158,7 +202,7 @@ Po zsumowaniu obu składników otrzymujemy:
 $$
 f(z) = \frac{q}{2\pi\epsilon_0}\left\lbrace\begin{matrix}
 -\frac{1}{a} \sum_{n=0}^{\infty} \left(\frac{z}{a}\right)^n - \frac{1}{a} \sum_{n=0}^{\infty} \left(\frac{- z}{a}\right)^n, & \left|z\right| < a \\
-\frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{a}{z}\right)^n + \frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{-a}{z}\right)^n, & \left|z\right| > a
+\frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{a}{z}\right)^n - \frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{-a}{z}\right)^n, & \left|z\right| > a
 \end{matrix}\right.
 $$
 
