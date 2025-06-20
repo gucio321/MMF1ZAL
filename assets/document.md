@@ -5,7 +5,7 @@ Mamy dwuwymiarowy piekarnik - płaszczyznę.
 Niech $T(x,y)$ opisuje temperaurę.
 Znamy warunki początkowe:
 - $T(x, 0) = 0$
-- $T(x, d) = $T_0$
+- $T(x, d) = T_0$
 
 Przez $T_y$ oznaczmy temperaturę w punkcie $y_0$ ($T(x, y_0)$).
 
@@ -52,7 +52,7 @@ Można zweryfikować działanie tej funkcji dla następujących przypadków:
 niech $u = x + i*0$ wtedy $f(u) = e^{\frac{\pi x}{d}}$ co będzie odpowiadało wartością na dodatniej póosi rzeczywistej.
 - górna płaszczyzna piekarnika ($y = d$)
 niech $u = x + i*d$ wtedy $f(u) = e^{\frac{\pi x}{d}} e^{\pi i} = -e^{\frac{\pi x}{d}}$ co będzie odpowiadało wartością na ujemnej póosi rzeczywistej.
-- Gdy $y \in [0, d]$, $f(u) pozostaje w górnej półpłaszczyźnie zespolonej, ponieważ $f(u) = e^{\frac{\pi x}{d}} e^{\gamma \pi i}$, dla $\gamma \in [0, 1]$
+- Gdy $y \in [0, d]$, $f(u)$ pozostaje w górnej półpłaszczyźnie zespolonej, ponieważ $f(u) = e^{\frac{\pi x}{d}} e^{\gamma \pi i}$, dla $\gamma \in [0, 1]$
 możemy wyliczyć $\Im f(u) = sin(\gamma \pi) e^{\frac{\pi x}{d}}$. Ta liczba jest zawsze większa bądź równa 0.
 ```
 
@@ -124,7 +124,7 @@ $$ (laurent-calka)
 Jak widać, całka {eq}`laurent-calka` jest operacją liniową.
 Z tego wynika, ze $\hat{L}$ również jest operatorem liniowym.
 
-Dlatego możemy rozpatrywać {eq}`opsi-pola` jako sumę 2 niezależnych szeregów.
+Dlatego możemy rozpatrywać {eq}`opis-pola` jako sumę 2 niezależnych szeregów.
 
 $$
 \hat{L}(f(z), z_0) = \frac{q}{2\pi \epsilon_0} \left( \hat{L}\left(\frac{1}{z-a}, z_0\right) - \hat{L}\left(\frac{1}{z+a}, z_0\right) \right)
@@ -156,7 +156,7 @@ natomiast dla $\left|z\right| > \left|a\right|$ analogicznie jest to $-\frac{1}{
 Po zsumowaniu obu składników otrzymujemy:
 
 $$
-f(z) \cong \frac{q}{2\pi\epsilon_0}\left\lbrace\begin{matrix}
+f(z) = \frac{q}{2\pi\epsilon_0}\left\lbrace\begin{matrix}
 -\frac{1}{a} \sum_{n=0}^{\infty} \left(\frac{z}{a}\right)^n - \frac{1}{a} \sum_{n=0}^{\infty} \left(\frac{- z}{a}\right)^n, & \left|z\right| < a \\
 \frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{a}{z}\right)^n + \frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{-a}{z}\right)^n, & \left|z\right| > a
 \end{matrix}\right.
